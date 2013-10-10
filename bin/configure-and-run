@@ -1,0 +1,10 @@
+#!/bin/sh
+
+if [ -z "$PORT" ]; then
+   echo "Missing $PORT" >&2
+   exit 1
+fi
+
+echo "port $PORT" > etc/runtime.conf
+
+exec "$@"
