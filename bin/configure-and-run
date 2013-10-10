@@ -5,7 +5,10 @@ if [ -z "$PORT" ]; then
    exit 1
 fi
 
-echo "port $PORT" > etc/runtime.conf
+cat >etc/runtime.conf <<EOF
+port $PORT
+loglevel verbose
+EOF
 
 if [ -n "$REDIS_PASSWORD" ]; then
     echo "requirepass $REDIS_PASSWORD" >> etc/runtime.conf
