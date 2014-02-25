@@ -55,3 +55,6 @@ cp "$BUILDPACK_DIR/bin/configure-and-run" bin
 mkdir -p .profile.d
 echo "export PATH=\"\$HOME/bin:\$PATH\"" > .profile.d/redis.sh
 
+if [ ! -e Procfile ]; then
+    echo "web: configure-and-run redis-server etc/redis.conf" > Procfile
+fi
