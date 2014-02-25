@@ -1,0 +1,11 @@
+#!/usr/bin/env ruby
+
+require "yaml"
+
+release = {
+  "default_process_type" => {
+    "redis" => "configure-and-run redis-server etc/redis.conf"
+  }
+}
+
+puts release.to_yaml
